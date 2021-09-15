@@ -26,7 +26,13 @@ class ContactItemAdapter(
     }
 
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
-        holder.bind(differ.currentList[position])
+        val contact = differ.currentList[position]
+        holder.binding.apply {
+            name.text = contact.name
+            age.text = contact.age
+            phone.text = contact.phone
+            occupation.text = contact.occupation
+        }
     }
 
     override fun getItemCount(): Int {
@@ -45,12 +51,5 @@ class ContactItemAdapter(
 
     val differ = AsyncListDiffer(this, differCallback)
 
-    class ContactViewHolder(val binding: ContactItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(contact: Contact) {
-            binding.name.text = contact.name
-            binding.number.text = contact.number
-            binding.age.text = contact.age
-            binding.occupation.text = contact.job
-        }
-    }
+    class ContactViewHolder(val binding: ContactItemBinding) : RecyclerView.ViewHolder(binding.root)
 }

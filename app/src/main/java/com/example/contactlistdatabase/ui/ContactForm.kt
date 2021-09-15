@@ -13,6 +13,7 @@ import com.example.contactlistdatabase.adapters.ContactItemAdapter
 import com.example.contactlistdatabase.databinding.ContactFormBinding
 import com.example.contactlistdatabase.db.ContactDatabase
 import com.example.contactlistdatabase.db.entities.ContactItem
+import com.example.contactlistdatabase.model.Contact
 import com.example.contactlistdatabase.repository.ContactRepository
 
 class ContactForm : Fragment() {
@@ -24,10 +25,6 @@ class ContactForm : Fragment() {
             requireActivity().application,
             ContactRepository(ContactDatabase(requireActivity()))
         )
-    }
-
-    private val contactItemAdapter: ContactItemAdapter by lazy {
-        ContactItemAdapter()
     }
 
     override fun onCreateView(
@@ -57,9 +54,11 @@ class ContactForm : Fragment() {
                     ).show()
                 }
 
-                val contact = ContactItem(name, phone, age, occupation)
+                //val contact = Contact(name, phone, age, occupation)
 
-                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+                viewModel.addContact(Contact(name = name, phone = phone, age = age, occupation = occupation))
+
+                findNavController().navigate(R.id.action_ContactForm_to_ContactList)
             }
         }
     }

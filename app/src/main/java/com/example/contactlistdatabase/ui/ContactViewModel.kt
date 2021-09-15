@@ -13,7 +13,9 @@ import kotlinx.coroutines.launch
 class ContactViewModel(
        app: Application,
        private val repo: ContactRepository
-) : AndroidViewModel(app) {
+) :
+    AndroidViewModel(app) {
+
     private var _contacts: MutableLiveData<List<Contact>> = MutableLiveData()
     val contacts: LiveData<List<Contact>> = _contacts
 

@@ -10,18 +10,17 @@
         android:name="com.example.contactlistdatabase.ui.ContactForm"
         android:label="@string/contacts_form"
         tools:layout="@layout/contact_form">
-
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_ContactForm_to_ContactList"
+            app:destination="@id/ContactList" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/ContactList"
         android:name="com.example.contactlistdatabase.ui.ContactList"
         android:label="@string/contacts_list"
-        tools:layout="@layout/contact_item">
+        tools:layout="@layout/contact_list">
         <action
-            android:id="@+id/action_SecondFragment_to_ContactForm"
+            android:id="@+id/action_ContactList_to_ContactForm"
             app:destination="@id/ContactForm" />
     </fragment>
 </navigation>

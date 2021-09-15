@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.contactlistdatabase.adapters.ContactItemAdapter
@@ -16,6 +17,7 @@ import com.example.contactlistdatabase.repository.ContactRepository
 class ContactList : Fragment() {
     private var _binding: ContactListBinding? = null
     private val binding: ContactListBinding get() = _binding!!
+    private lateinit var contactAdapter: ContactItemAdapter
 
     private val viewModel: ContactViewModel by viewModels {
         ContactViewModelFactory(
@@ -23,9 +25,9 @@ class ContactList : Fragment() {
             ContactRepository(ContactDatabase(requireActivity()))
         )
     }
-    private val contactAdapter: ContactItemAdapter by lazy {
-        ContactItemAdapter()
-    }
+//    private val contactAdapter: ContactItemAdapter by lazy {
+//        ContactItemAdapter()
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,6 +45,10 @@ class ContactList : Fragment() {
             contactItems.layoutManager = LinearLayoutManager(requireContext())
             contactItems.adapter = contactAdapter
         }
+
+        viewModel.contacts.observe(viewLifecycleOwner, Observer {
+            contactAdapter.differ.submitList(it)
+        })
     }
 
     override fun onDestroyView() {
