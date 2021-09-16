@@ -20,6 +20,10 @@ class ContactViewModel(
     private var _contacts: MutableLiveData<List<Contact>> = MutableLiveData()
     val contacts: LiveData<List<Contact>> = _contacts
 
+    init {
+        getAllContacts()
+    }
+
     private fun getAllContacts() {
         viewModelScope.launch {
             repo.getContacts.collect {
