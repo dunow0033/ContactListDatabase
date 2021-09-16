@@ -6,14 +6,11 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contactlistdatabase.databinding.ContactItemBinding
-import com.example.contactlistdatabase.db.entities.ContactItem
+//import com.example.contactlistdatabase.db.entities.Contact
 import com.example.contactlistdatabase.model.Contact
 import com.example.contactlistdatabase.ui.ContactViewModel
 
-class ContactItemAdapter(
-//    var contacts: List<ContactItem>,
-//    private val viewModel: ContactViewModel
-) : RecyclerView.Adapter<ContactItemAdapter.ContactViewHolder>() {
+class ContactItemAdapter() : RecyclerView.Adapter<ContactItemAdapter.ContactViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         return ContactViewHolder(

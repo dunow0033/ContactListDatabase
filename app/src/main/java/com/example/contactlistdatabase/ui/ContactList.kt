@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.contactlistdatabase.adapters.ContactItemAdapter
 import com.example.contactlistdatabase.databinding.ContactListBinding
@@ -41,9 +42,15 @@ class ContactList : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(binding){
-            contactItems.layoutManager = LinearLayoutManager(requireContext())
-            contactItems.adapter = contactAdapter
+//        with(binding){
+//            contactItems.layoutManager = LinearLayoutManager(requireContext())
+//            contactItems.adapter = contactAdapter
+//        }
+
+        binding.contactItems.apply {
+            contactAdapter = ContactItemAdapter()
+            adapter = contactAdapter
+            layoutManager = LinearLayoutManager(context)
         }
 
         viewModel.contacts.observe(viewLifecycleOwner, Observer {

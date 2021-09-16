@@ -9,10 +9,10 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.contactlistdatabase.R
-import com.example.contactlistdatabase.adapters.ContactItemAdapter
+//import com.example.contactlistdatabase.adapters.ContactItemAdapter
 import com.example.contactlistdatabase.databinding.ContactFormBinding
 import com.example.contactlistdatabase.db.ContactDatabase
-import com.example.contactlistdatabase.db.entities.ContactItem
+//import com.example.contactlistdatabase.db.entities.ContactItem
 import com.example.contactlistdatabase.model.Contact
 import com.example.contactlistdatabase.repository.ContactRepository
 

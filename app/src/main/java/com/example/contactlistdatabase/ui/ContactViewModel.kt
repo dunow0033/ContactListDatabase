@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+//import com.example.contactlistdatabase.db.entities.Contact
 import com.example.contactlistdatabase.model.Contact
 import com.example.contactlistdatabase.repository.ContactRepository
 import kotlinx.coroutines.flow.collect
@@ -21,7 +22,7 @@ class ContactViewModel(
 
     private fun getAllContacts() {
         viewModelScope.launch {
-            repo.getContacts().collect {
+            repo.getContacts.collect {
                 _contacts.postValue(it)
             }
         }
