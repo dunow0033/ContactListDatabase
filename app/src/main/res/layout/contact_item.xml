@@ -24,8 +24,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:textSize="22sp"
-        android:textAppearance="@color/black"
-        android:background="@color/red"/>
+        android:textAppearance="@color/black" />
 
     <TextView
         android:id="@+id/age"
