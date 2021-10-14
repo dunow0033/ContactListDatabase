@@ -10,5 +10,9 @@ class ContactRepository(val db : ContactDatabase) {
         db.getContactDao().insertContact(contact)
     }
 
+    suspend fun deleteContact(contact: Contact){
+        db.getContactDao().deleteContact(contact)
+    }
+
     val getContacts: Flow<List<Contact>> = db.getContactDao().getContacts()
 }

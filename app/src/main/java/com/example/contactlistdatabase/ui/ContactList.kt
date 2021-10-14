@@ -48,7 +48,7 @@ class ContactList : Fragment() {
 //        }
 
         binding.contactItems.apply {
-            contactAdapter = ContactItemAdapter()
+            contactAdapter = ContactItemAdapter(viewModel)
             adapter = contactAdapter
             layoutManager = LinearLayoutManager(context)
         }

@@ -10,7 +10,9 @@ import com.example.contactlistdatabase.databinding.ContactItemBinding
 import com.example.contactlistdatabase.model.Contact
 import com.example.contactlistdatabase.ui.ContactViewModel
 
-class ContactItemAdapter() : RecyclerView.Adapter<ContactItemAdapter.ContactViewHolder>() {
+class ContactItemAdapter(
+    private val viewModel: ContactViewModel
+) : RecyclerView.Adapter<ContactItemAdapter.ContactViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         return ContactViewHolder(
@@ -29,6 +31,10 @@ class ContactItemAdapter() : RecyclerView.Adapter<ContactItemAdapter.ContactView
             age.text = contact.age
             phone.text = contact.phone
             occupation.text = contact.occupation
+
+            holder.binding.ivDelete.setOnClickListener {
+                viewModel.deleteContact(contact)
+            }
         }
     }
 

@@ -24,7 +24,7 @@ class ContactViewModel(
         getAllContacts()
     }
 
-    private fun getAllContacts() {
+    fun getAllContacts() {
         viewModelScope.launch {
             repo.getContacts.collect {
                 _contacts.postValue(it)
@@ -35,6 +35,12 @@ class ContactViewModel(
     fun addContact(contact: Contact) {
         viewModelScope.launch {
             repo.addContact(contact)
+        }
+    }
+
+    fun deleteContact(contact: Contact) {
+        viewModelScope.launch {
+            repo.deleteContact(contact)
         }
     }
 }
