@@ -38,6 +38,12 @@ class ContactViewModel(
         }
     }
 
+    fun editContact(contact: Contact) {
+        viewModelScope.launch {
+            repo.editContact(contact)
+        }
+    }
+
     fun deleteContact(contact: Contact) {
         viewModelScope.launch {
             repo.deleteContact(contact)

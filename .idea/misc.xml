@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ContactListDatabase/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ContactListDatabase/app/src/main/res/layout/contact_edit_form.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ContactListDatabase/app/src/main/res/layout/contact_edit_name.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ContactListDatabase/app/src/main/res/layout/contact_form.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ContactListDatabase/app/src/main/res/layout/contact_item.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ContactListDatabase/app/src/main/res/layout/contact_list.xml" value="0.25" />
         <entry key="..\:/Users/bedon/AndroidStudioProjects/ContactListDatabase/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/bedon/AndroidStudioProjects/ContactListDatabase/app/src/main/res/layout/contact_form.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/bedon/AndroidStudioProjects/ContactListDatabase/app/src/main/res/layout/contact_item.xml" value="0.2" />

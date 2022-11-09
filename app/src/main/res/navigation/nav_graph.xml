@@ -22,5 +22,19 @@
         <action
             android:id="@+id/action_ContactList_to_ContactForm"
             app:destination="@id/ContactForm" />
+        <action
+            android:id="@+id/action_ContactList_to_ContactEditForm"
+            app:destination="@id/ContactEdit" />
+    </fragment>
+    <fragment
+        android:id="@+id/ContactEdit"
+        android:name="com.example.contactlistdatabase.ui.ContactEditForm"
+        android:label="Edit Contact"
+        tools:layout="@layout/contact_edit_form">
+        <action
+            android:id="@+id/action_ContactEdit_to_ContactList"
+            app:destination="@id/ContactList" />
+        <argument android:name="contactId"
+            app:argType="com.example.contactlistdatabase.model.Contact" />
     </fragment>
 </navigation>

@@ -13,6 +13,9 @@ interface ContactDao {
     @Query("SELECT * FROM contacts")
     fun getContacts() : Flow<List<Contact>>
 
+    @Update
+    suspend fun editContact(contact: Contact)
+
     @Delete
     suspend fun deleteContact(contact: Contact)
 }

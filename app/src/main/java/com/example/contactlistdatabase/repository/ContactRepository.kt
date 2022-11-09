@@ -10,6 +10,10 @@ class ContactRepository(val db : ContactDatabase) {
         db.getContactDao().insertContact(contact)
     }
 
+    suspend fun editContact(contact: Contact){
+        db.getContactDao().editContact(contact)
+    }
+
     suspend fun deleteContact(contact: Contact){
         db.getContactDao().deleteContact(contact)
     }
