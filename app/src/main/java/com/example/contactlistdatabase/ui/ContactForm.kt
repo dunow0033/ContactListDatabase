@@ -61,6 +61,10 @@ class ContactForm : Fragment() {
 
                 findNavController().navigate(R.id.action_ContactForm_to_ContactList)
             }
+
+            buttonList.setOnClickListener {
+                findNavController().navigate(R.id.action_ContactForm_to_ContactList)
+            }
         }
     }
 }

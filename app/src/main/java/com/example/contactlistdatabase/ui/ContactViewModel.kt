@@ -49,4 +49,10 @@ class ContactViewModel(
             repo.deleteContact(contact)
         }
     }
+
+    fun deleteAllContacts() {
+        viewModelScope.launch {
+            repo.deleteAllContacts()
+        }
+    }
 }
