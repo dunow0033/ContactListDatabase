@@ -69,7 +69,7 @@ class ContactList : Fragment(), ContactItemAdapter.HandleItemClick {
         binding.deleteAll.setOnClickListener {
             viewModel.deleteAllContacts()
             findNavController().navigate(R.id.action_ContactList_to_ContactForm)
-            Toast.makeText(requireContext(),"All Contacts deleted!!, Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(),"All Contacts deleted!!", Toast.LENGTH_SHORT).show()
         }
 
         viewModel.contacts.observe(viewLifecycleOwner, Observer {
