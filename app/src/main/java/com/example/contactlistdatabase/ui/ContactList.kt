@@ -12,7 +12,6 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,7 +20,6 @@ import com.example.contactlistdatabase.adapters.ContactItemAdapter
 import com.example.contactlistdatabase.databinding.ContactListBinding
 import com.example.contactlistdatabase.db.ContactDatabase
 import com.example.contactlistdatabase.model.Contact
-import com.example.contactlistdatabase.model.Id
 import com.example.contactlistdatabase.repository.ContactRepository
 
 class ContactList : Fragment(), ContactItemAdapter.HandleItemClick {
@@ -61,6 +59,10 @@ class ContactList : Fragment(), ContactItemAdapter.HandleItemClick {
             contactAdapter = ContactItemAdapter(viewModel, this@ContactList)
             adapter = contactAdapter
             layoutManager = LinearLayoutManager(context)
+        }
+
+        binding.homeButton.setOnClickListener {
+            findNavController().navigate(R.id.action_ContactList_to_ContactForm)
         }
 
         viewModel.contacts.observe(viewLifecycleOwner, Observer {
@@ -105,12 +107,12 @@ class ContactList : Fragment(), ContactItemAdapter.HandleItemClick {
     }
 
     private fun showDeleteDialog(int: Int) {
-//        val dialogBuilder = AlertDialog.Builder(requireActivity())
-//
-//        //dialogBuilder.setTitle(viewModel.todos.value?.get(int)?.id.toString())
-//
-//        dialogBuilder.setMessage("Delete ${viewModel.todos.value?.get(int)?.todoTask}?")
-//
+        val dialogBuilder = AlertDialog.Builder(requireActivity())
+
+        dialogBuilder.setTitle("Delete contact") //viewModel.todos.value?.get(int)?.id.toString())
+
+        dialogBuilder.setMessage("Delete ${viewModel.contacts.value?.get(int)?.name}?")
+
 ////        var updatedText = ""
 ////        var updatedTodo = EditText(requireActivity())
 ////        updatedTodo.setText(viewModel.todos.value?.get(int)?.todoTask)
@@ -118,28 +120,25 @@ class ContactList : Fragment(), ContactItemAdapter.HandleItemClick {
 ////        dialogBuilder.setView(updatedTodo)
 ////
 ////        dialogBuilder.setCancelable(true)
-//        dialogBuilder.setPositiveButton("OK") { dialogInterface, it ->
-////            updatedText = updatedTodo.text.toString()
-////
-////            val todoModel = Todo(viewModel.todos.value?.get(int)?.id, updatedText)
-//            viewModel.contacts.value?.let { it1 -> viewModel.deleteTodo(it1.get(int)) }
-//            Activity().finish()
-//        }
+        dialogBuilder.setPositiveButton("OK") { dialogInterface, it ->
+            viewModel.contacts.value?.let { it1 -> viewModel.deleteContact(it1.get(int)) }
+            Activity().finish()
+        }
 //
-//        dialogBuilder.setNegativeButton("Cancel") { dialogInterface, it ->
-//            dialogInterface.dismiss()
-//        }
-//
-//        dialogBuilder.create()
-//        dialogBuilder.show()
-    }
+        dialogBuilder.setNegativeButton("Cancel") { dialogInterface, it ->
+            dialogInterface.dismiss()
+        }
 
-    override fun removeItem(int: Int) {
-        showDeleteDialog(int)
+        dialogBuilder.create()
+        dialogBuilder.show()
     }
 
     override fun editItem(contactId: Contact) {
         navigateToEditForm(contactId)
+    }
+
+    override fun removeItem(int: Int) {
+        showDeleteDialog(int)
     }
 
     override fun onDestroyView() {

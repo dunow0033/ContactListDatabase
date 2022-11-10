@@ -43,6 +43,7 @@ class ContactItemAdapter(
 
             holder.binding.ivDelete.setOnClickListener(object: View.OnClickListener {
                 override fun onClick(view: View) {
+                    //clickListener.removeItem(holder.adapterPosition)
                     clickListener.removeItem(holder.adapterPosition)
                 }
             })
